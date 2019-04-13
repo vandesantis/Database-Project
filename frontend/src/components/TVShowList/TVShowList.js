@@ -30,6 +30,7 @@ class TVShowList extends React.Component {
         const tvShowArray = filteredData.map((tvShow, i) => {
             return (
                 <TVShowEntry 
+                    key={tvShow.title}
                     openShowPage={this.props.openShowPage}
                     title={tvShow.title}
                     genre={tvShow.genre}
@@ -41,12 +42,14 @@ class TVShowList extends React.Component {
 
         return (
             <table>
-                <tr class='table-header'>
-                    <td>Title</td>
-                    <td>Genre</td>
-                    <td>Rating</td>
-                </tr>
-                { tvShowArray }
+                <tbody>
+                    <tr className='table-header'>
+                        <td>Title</td>
+                        <td>Genre</td>
+                        <td>Rating</td>
+                    </tr>
+                    { tvShowArray }
+                </tbody>
             </table>
         );
     }
