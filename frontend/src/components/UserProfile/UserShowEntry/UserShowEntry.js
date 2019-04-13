@@ -3,7 +3,7 @@ import React from 'react';
 
 const UserShowEntry = ({ openShowPage, title, genre, watchingStatus, rating, synopsis, fcc }) => {
     return (
-        <tr class='home-list'>
+        <tr className='home-list'>
             <td><p onClick={() => openShowPage(title, genre, rating, synopsis, fcc)} className='title dim'>{title}</p></td>
             <td className='genre'>{genre}</td>
             <td className='watchingStatus'>{watchingStatus}</td>

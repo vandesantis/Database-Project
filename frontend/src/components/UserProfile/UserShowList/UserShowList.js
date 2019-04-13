@@ -38,7 +38,9 @@ class UserShowList extends React.Component {
 
     tvShowArray = exampleData.data.map((tvShow, i) => {
         return (
-            <TVShowEntry openShowPage={this.props.openShowPage}
+            <TVShowEntry 
+                key={tvShow.title}
+                openShowPage={this.props.openShowPage}
                 title={tvShow.title}
                 genre={tvShow.genre}
                 watchingStatus={tvShow.watchingStatus}
@@ -51,13 +53,15 @@ class UserShowList extends React.Component {
     render() {
         return (
             <table>
-                <tr class='table-header'>
-                    <td>Title</td>
-                    <td>Genre</td>
-                    <td>Watching Status</td>
-                    <td>Rating</td>
-                </tr>
-                { this.tvShowArray }
+                <tbody>
+                    <tr className='table-header'>
+                        <td>Title</td>
+                        <td>Genre</td>
+                        <td>Watching Status</td>
+                        <td>Rating</td>
+                    </tr>
+                    { this.tvShowArray }
+                </tbody>
             </table>
         );
     }
