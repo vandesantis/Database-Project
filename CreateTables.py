@@ -63,7 +63,7 @@ try:
     Seasons int,
     Synopsis varchar(255),
     FCC varchar(255)
-    FOREIGN KEY (Email)
+    FOREIGN KEY (Email) REFERNCES User(Email)
     )""")
 
 except:
@@ -76,7 +76,7 @@ try:
     # Studio Table
     mycursor.execute("""
     CREATE TABLE Studio (
-    ID int,
+    ID int AUTO_INCREMENT,
     Name varchar(255),
     Location varchar(255),
     PRIMARY KEY (ID)
@@ -92,7 +92,7 @@ try:
     # Actor Table
     mycursor.execute("""
     CREATE TABLE Actor (
-    ID int,
+    ID int AUTO_INCREMENT,
     Name varchar(255),
     Age int,
     PRIMARY KEY (ID)
@@ -110,8 +110,8 @@ try:
     CREATE TABLE TV_Show_Actor (
     Show_Name varchar(255),
     Actor_ID varchar(255),
-    FOREIGN KEY (Show_Name),
-    FOREIGN KEY (Actor_ID)
+    FOREIGN KEY (Show_Name) REFERENCES TV_Show(Name),
+    FOREIGN KEY (Actor_ID) REFERENCES Actor(ID)
     )""")
        
 except:
@@ -126,8 +126,8 @@ try:
     CREATE TABLE TV_Show_Studio (
     Show_Name varchar(255),
     Studio_ID varchar(255),
-    FOREIGN KEY (Show_Name),
-    FOREIGN KEY (Studio_ID)
+    FOREIGN KEY (Show_Name) REFERENCES TV_Show(Name),
+    FOREIGN KEY (Studio_ID) REFERENCES Studio(ID)
     )""")
        
 except:
