@@ -25,7 +25,7 @@ try:
     Synopsis varchar(255),
     FCC varchar(255),
     Watching_Status bit,
-    PRIMARY KEY (Name)
+    PRIMARY KEY(Name)
     )""")
     
 except:
@@ -42,7 +42,7 @@ try:
     Name varchar(255),
     Password varchar(255),
     Favorite_Show varchar(255),
-    PRIMARY KEY (Email)
+    PRIMARY KEY(Email)
     )""")
     
 except:
@@ -57,13 +57,12 @@ try:
     CREATE TABLE Listed_Show (
     Email varchar(255),
     Name varchar(255),
-    Rating varchar(255),
-    Genre varchar(255),
     Rating int,
+    Genre varchar(255),
     Seasons int,
     Synopsis varchar(255),
-    FCC varchar(255)
-    FOREIGN KEY (Email) REFERNCES User(Email)
+    FCC varchar(255),
+    FOREIGN KEY(Email) REFERENCES User(Email)
     )""")
 
 except:
@@ -79,7 +78,7 @@ try:
     ID int AUTO_INCREMENT,
     Name varchar(255),
     Location varchar(255),
-    PRIMARY KEY (ID)
+    PRIMARY KEY(ID)
     )""")
       
 except:
@@ -95,7 +94,7 @@ try:
     ID int AUTO_INCREMENT,
     Name varchar(255),
     Age int,
-    PRIMARY KEY (ID)
+    PRIMARY KEY(ID)
     )""")
         
 except:
@@ -109,9 +108,9 @@ try:
     mycursor.execute("""
     CREATE TABLE TV_Show_Actor (
     Show_Name varchar(255),
-    Actor_ID varchar(255),
-    FOREIGN KEY (Show_Name) REFERENCES TV_Show(Name),
-    FOREIGN KEY (Actor_ID) REFERENCES Actor(ID)
+    Actor_ID int,
+    FOREIGN KEY(Show_Name) REFERENCES TV_Show(Name),
+    FOREIGN KEY(Actor_ID) REFERENCES Actor(ID)
     )""")
        
 except:
@@ -125,9 +124,9 @@ try:
     mycursor.execute("""
     CREATE TABLE TV_Show_Studio (
     Show_Name varchar(255),
-    Studio_ID varchar(255),
-    FOREIGN KEY (Show_Name) REFERENCES TV_Show(Name),
-    FOREIGN KEY (Studio_ID) REFERENCES Studio(ID)
+    Studio_ID int,
+    FOREIGN KEY(Show_Name) REFERENCES TV_Show(Name),
+    FOREIGN KEY(Studio_ID) REFERENCES Studio(ID)
     )""")
        
 except:
