@@ -33,7 +33,7 @@ class NewShowForm extends React.Component {
     updateDatabase = () => {
         fetch('http://localhost:3000/submitform', {
             method: 'post',
-            headers: {'Content-TRype': 'application/json'},
+            headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
                 title: this.state.title,
                 synopsis: this.state.synopsis,
