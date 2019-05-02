@@ -1,0 +1,27 @@
+//update statements
+updating show table:
+UPDATE TV_Show
+SET Genre = genre,
+    Rating = rating,
+    Seasons = seasons,
+    Synopsis = synopsis,
+    FCC = FCC,
+    Watching_Status  = watching_status
+WHERE Name == name;
+
+updating user table:
+UPDATE User
+SET Name = name,
+    Password = password,
+    Favorite_Show = favorite_show
+WHERE Email = email;
+
+UPDATE Studio
+SET Name = name,
+    Location = location
+WHERE ID = id;
+
+UPDATE Actor
+SET Name = name,
+    Age = age,
+WHERE ID = id;
