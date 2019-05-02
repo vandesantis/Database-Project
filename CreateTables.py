@@ -1,22 +1,13 @@
-import mysql.connector
+import sqlite3
 
-mydb = mysql.connector.connect(
-    host = "localhost",
-    user = "root",
-    passwd = "root",
-    database = "tvbase"
-    )
-
-print(mydb)
-
-mycursor = mydb.cursor()
+dbconn = sqlite3.connect("tvbase.db")
 
 ##############
 ###TV SHOWS###
 ##############
 try:
     # TV Show Table
-    mycursor.execute("""
+    dbconn.execute("""
     CREATE TABLE TV_Show (
     Name varchar(255),
     Genre varchar(255),
@@ -36,7 +27,7 @@ except:
 ###########
 try:
     # User Table
-    mycursor.execute("""
+    dbconn.execute("""
     CREATE TABLE User (
     Email varchar(255),
     Name varchar(255),
@@ -53,7 +44,7 @@ except:
 #################
 try:
     # Listed Table
-    mycursor.execute("""
+    dbconn.execute("""
     CREATE TABLE Listed_Show (
     Email varchar(255),
     Name varchar(255),
@@ -73,7 +64,7 @@ except:
 ############
 try:
     # Studio Table
-    mycursor.execute("""
+    dbconn.execute("""
     CREATE TABLE Studio (
     ID int AUTO_INCREMENT,
     Name varchar(255),
@@ -89,7 +80,7 @@ except:
 ###########
 try:
     # Actor Table
-    mycursor.execute("""
+    dbconn.execute("""
     CREATE TABLE Actor (
     ID int AUTO_INCREMENT,
     Name varchar(255),
@@ -105,7 +96,7 @@ except:
 ###################
 try:
     # TV Show Actor Table
-    mycursor.execute("""
+    dbconn.execute("""
     CREATE TABLE TV_Show_Actor (
     Show_Name varchar(255),
     Actor_ID int,
@@ -121,7 +112,7 @@ except:
 ####################
 try:
     # TV Show Actor Table
-    mycursor.execute("""
+    dbconn.execute("""
     CREATE TABLE TV_Show_Studio (
     Show_Name varchar(255),
     Studio_ID int,
@@ -131,8 +122,10 @@ try:
        
 except:
     print("TABLE ALREADY EXISTS")
-    
-mycursor.execute("SHOW TABLES")
 
-for x in mycursor:
-    print(x)
+cursor = dbconn.cursor()
+cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
+
+print(cursor.fetchall())
+
+dbconn.close()
