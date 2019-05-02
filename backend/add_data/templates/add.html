@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login</title>
+</head>
+<body>
+
+<form action="/shows/add_data/" method="post">
+  {% csrf_token %}
+  <fieldset>
+    <legend>TV Show:</legend>
+
+    <input type="hidden" id="table" value="Show" name = "table">
+
+    Name:<br>
+    <input type="text" id="name" value="Name" name = "name"><br>
+
+    Genre:<br>
+    <input type="text" id="genre" value="Genre" name = "genre"><br>
+
+    Rating:<br>
+    <input type="number" id="rating" value="Rating" name = "rating"><br>
+
+    Seasons:<br>
+    <input type="number" id="seasons" value="Seasons" name = "seasons"><br>
+
+    Synopsis:<br>
+    <input type="text" id="synopsis" value="Synopsis" name = "synopsis"><br>
+
+    FCC:<br>
+    <input type="text" id="fcc" value="FCC" name = "fcc"><br><br>
+
+    <input type="submit" value="Submit">
+  </fieldset>
+</form>
+
+
+
+
+<form action="/shows/add_data/" method="post">
+  {% csrf_token %}
+  <fieldset>
+    <legend>Studio:</legend>
+
+    <input type="hidden" id="table" value="Studio" name = "table">
+
+    Name:<br>
+    <input type="text" id="name" value="Name" name = "name"><br>
+
+    Location:<br>
+    <input type="text" id="location" value="Location" name = "location"><br>
+
+    Show:<br>
+    <input type="text" id="show" value="Show" name = "show"><br><br>
+
+    <input type="submit" value="Submit">
+  </fieldset>
+</form>
+
+
+<!-- ACTOR -->
+
+<form action="/shows/add_data/" method="post">
+  {% csrf_token %}
+  <fieldset>
+    <legend>Actor:</legend>
+
+    <input type="hidden" id="table" value="Actor" name = "table">
+
+    Name:<br>
+    <input type="text" id="name" value="Name" name = "name"><br>
+
+    Age:<br>
+    <input type="number" id="age" value="Age" name = "age"><br>
+
+    Show:<br>
+    <input type="text" id="show" value="Show" name = "show"><br><br>
+
+    <input type="submit" value="Submit">
+  </fieldset>
+</form>
+
+
+</body>
+</html>
+

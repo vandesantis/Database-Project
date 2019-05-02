@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MAIN</title>
+</head>
+<body>
+
+<form action="/shows/login/" method="post">
+  {% csrf_token %}
+  <fieldset>
+
+    <input type="hidden" id="name" value={{name}} name="name">
+
+    <input type="text" id="search" value="Name" name = "search">
+
+    <input type="submit" value="Search">
+  </fieldset>
+</form>
+
+
+<h1>{{name}}'s PERSONAL PAGE</h1>
+
+
+<table>
+    <tbody>
+        {% for row in table %}
+            <tr>
+                {% for column in row %}
+                    <td><a href= "/shows/{{ row.0 }}">{{ column }}</a></td>
+                {% endfor %}
+		<button onclick="grab()" type="button">ADD</button>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<script>
+    function grab() {
+    
+}
+</script>
+
+</body>
+</html>

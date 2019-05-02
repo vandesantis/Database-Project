@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MAIN</title>
+</head>
+<body>
+
+<h1>ALL SHOWS</h1>
+
+<h2><a href= "/shows/login/">Login</a> <a href= "/shows/add_data/">Add Data</a></h2>
+
+<table>
+    <tbody>
+        {% for row in table %}
+            <tr>
+                {% for s in row %}
+                	<td><a href= "/shows/{{ row.0 }}">{{ s }}</a></td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+
+</body>
+</html>
